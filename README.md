@@ -26,6 +26,9 @@ npm -v
 npm i
 ```
 
+- Add correct configs to the `src/app/config.ts` file.
+
+
 - Inside the project directory, run the following command to start the website.
 
 ```shell

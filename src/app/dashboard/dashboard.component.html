@@ -1,0 +1,62 @@
+<body>
+<!-- Sidebar -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%" [ngClass]="loading? 'blur' : ''">
+    <h3 class="w3-bar-item w3-button" (click)="active_course=null">Home</h3>
+    <h3 class="w3-bar-item">Courses</h3>
+    <div *ngFor="let course of courses" class="w3-bar-item w3-button" (click)="links=[];active_course=course">{{course.short_name}}</div>
+    <div class="w3-bar-item w3-button mt-4" (click)="logout()">Logout</div>
+</div>
+
+<!-- Page Content -->
+<div style="margin-left:20%" [ngClass]="loading? 'blur' : ''">
+    <div *ngIf="!active_course" class="w-100">
+        <div class="w3-container w3-blue-gray">
+            <h1>Welcome to your Learning Portal</h1>
+        </div>
+    
+        <div class="w3-container">
+            <h2>Select a course to get started</h2>
+            <p>Each course has two difficulty levels.</p>
+            <br>
+            <p>Feel free to use the in-built chatbot.</p>
+        </div>
+    </div>
+
+    <div *ngIf="active_course" class="container w-100">
+        <div class="row p-4">
+            <h2 class="pt-4">{{ active_course.name }}</h2>
+        </div>
+        <div class="row px-4 py-0">
+            <div class="col-6 px-4 py-2 mx-0 my-4 text-center">
+                <div class="btn btn-primary w-100 level-btn" (click)="load_b()">Beginner</div>
+            </div>
+            <div class="col-6 px-4 py-2 mx-0 my-4 text-center">
+                <div class="btn btn-primary w-100 level-btn" (click)="load_i()">Intermediate</div>
+            </div>
+        </div>
+        <div *ngIf="links && links.length > 0" class="row px-4 pt-4">
+            <div class="col-12 px-4 mx-0 my-4">
+                <div class="col-12 courses-card p-3">
+                    <h2>{{ course_type }} Courses</h2>
+                    <br>
+                    <br>
+                    <p class="clickable" *ngFor="let link of links" [routerLink]="['/video']" [queryParams]="{id: link.id, c_id: link.c_id, c_type: link.c_type , url: link.url, title: link.title}"> {{link.index}} - {{link.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<df-messenger
+  intent="WELCOME"
+  chat-title="Chatbot"
+  agent-id="e84638fa-36c1-4a89-b11f-1863bcb37fa3"
+  language-code="en"
+></df-messenger>
+
+
+<div *ngIf="loading" class="overlay">
+  <img src="assets/loading_anim.gif" alt="Your page is loading..." class="loader"/>
+</div>

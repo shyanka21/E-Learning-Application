@@ -1,0 +1,46 @@
+.level-btn {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    align-items: center;
+}
+
+.chatbot-frame {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.chat-input-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+}
+
+.chat-log {
+    position: absolute;
+    bottom: 60px;
+    height: 420px;
+    right: 20px;
+    width: 360px;
+    overflow-y: scroll;
+}
+
+.chat-log-item {
+    border-style: none none solid none;
+    border-width: 0 0 1px 0;
+    border-color: #ddd;
+}
+
+.courses-card {
+    background: #ccc;
+}
+
+.bot-loading { 
+    background:url(../../assets/loading_bot_anim.gif) center center no-repeat; 
+}

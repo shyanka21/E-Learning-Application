@@ -1,0 +1,23 @@
+<div class="login-box" [ngClass]="loading? 'blur' : ''">
+    <h2>Sign Up</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="name" required="" [(ngModel)]="name">
+        <label>Name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="username" required="" [(ngModel)]="username">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required="" [(ngModel)]="password">
+        <label>Password</label>
+      </div>
+      <div class="btn btn-success" type="submit" (click)="signup()">Sign up</div>
+      <div class="btn btn-primary ms-2" [routerLink]="['/login']">Login</div>
+    </form>
+  </div>
+
+  <div *ngIf="loading" class="overlay">
+    <img src="assets/loading_anim.gif" alt="Your page is loading..." class="loader"/>
+  </div>

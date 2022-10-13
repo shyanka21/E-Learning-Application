@@ -1,0 +1,8 @@
+.feedback-card {
+    background: #ccc;
+}
+
+.iframe-pdf { 
+    -webkit-overflow-scrolling: touch;
+  	overflow-y: scroll;
+}
